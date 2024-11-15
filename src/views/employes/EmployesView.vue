@@ -12,21 +12,12 @@
     </ion-toolbar>
 
     <ion-list>
-      <ion-item>
-        <ion-label>Pokémon Yellow</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Mega Man X</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>The Legend of Zelda</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Pac-Man</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Super Mario World</ion-label>
-      </ion-item>
+      <ion-item v-for="employe, i in employes">
+        <ion-label>{{ employe.nom }} {{ employe.prenom }}</ion-label>
+        <ion-button size="small" @click="editEmploye(employe, i)" >
+          <ion-icon slot="icon-only" :md="createOutline"></ion-icon>
+        </ion-button>
+      </ion-item> 
     </ion-list>
   </template>
   
@@ -41,16 +32,18 @@
         IonBackButton,
         IonButton,
         IonIcon,
+        IonTitle,
         modalController,
         IonicVue
     } from '@ionic/vue';
-    import {personAddOutline} from "ionicons/icons"
+    import {personAddOutline, createOutline} from "ionicons/icons"
     import { defineComponent } from 'vue';
   
     export default defineComponent({
       data(){
         return{
-            personAddOutline  
+            personAddOutline,createOutline,
+            employes: this.$store.state.employes
         }
       },
       components: {
@@ -62,6 +55,7 @@
             IonBackButton,
             IonButton,
             IonIcon,
+            IonTitle,
             CreateEmploye
     },
     methods:{
@@ -74,8 +68,22 @@
 
             const { data, role } = await modal.onWillDismiss();
 
-            if (role === 'confirm') {
-            message.value = `Hello, ${data}!`;
+            if (role === 'createEmnploye') {
+              this.employes.push(data)
+            }
+        },
+        async editEmploye(employe, idx){
+          const modal = await modalController.create(({
+            component:CreateEmploye,
+            componentProps:{employeProp:employe, idx:idx}
+          }))
+
+          modal.present();
+
+          const { data, role } = await modal.onWillDismiss();
+
+          if (role === 'modifyEmnploye') {
+              this.employes[data.idx] = data.employe
             }
         }
     }
