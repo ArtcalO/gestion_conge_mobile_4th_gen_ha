@@ -12,7 +12,64 @@ const store = createStore({
           prenom:"TLW",
           date_naissance:"2020-02-10",
           genre:"M" 
-        }
+        },
+        {
+          id:1,
+          nom:"ArtcalO",
+          prenom:"TLW",
+          date_naissance:"2020-02-10",
+          genre:"M" 
+        },
+        {
+          id:1,
+          nom:"ArtcalO",
+          prenom:"TLW",
+          date_naissance:"2020-02-10",
+          genre:"M" 
+        },
+        {
+          id:1,
+          nom:"ArtcalO",
+          prenom:"TLW",
+          date_naissance:"2020-02-10",
+          genre:"M" 
+        },
+        {
+          id:1,
+          nom:"ArtcalO",
+          prenom:"TLW",
+          date_naissance:"2020-02-10",
+          genre:"M" 
+        },
+        {
+          id:1,
+          nom:"ArtcalO",
+          prenom:"TLW",
+          date_naissance:"2020-02-10",
+          genre:"M" 
+        },
+        {
+          id:1,
+          nom:"ArtcalO",
+          prenom:"TLW",
+          date_naissance:"2020-02-10",
+          genre:"M" 
+        },
+        {
+          id:1,
+          nom:"ArtcalO",
+          prenom:"TLW",
+          date_naissance:"2020-02-10",
+          genre:"M" 
+        },
+        {
+          id:1,
+          nom:"ArtcalO",
+          prenom:"TLW",
+          date_naissance:"2020-02-10",
+          genre:"M" 
+        },
+        
       ]
     }
   },
